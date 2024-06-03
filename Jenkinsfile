@@ -14,6 +14,7 @@ pipeline {
             steps {
                 script {
                     echo "building jar"
+                    buildJar()
                     //gv.buildJar()
                 }
             }
@@ -22,6 +23,7 @@ pipeline {
             steps {
                 script {
                     echo "building image"
+                    buildImage 'ucalib1/demo-app:jma-3.0'
                     //gv.buildImage()
                 }
             }
@@ -30,6 +32,7 @@ pipeline {
             steps {
                 script {
                     echo "deploying"
+                    gv.deployApp()
                     //gv.deployApp()
                 }
             }
