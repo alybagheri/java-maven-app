@@ -1,3 +1,4 @@
+#!/usr/bin/env groovy
 def gv
 
 pipeline {
@@ -15,7 +16,6 @@ pipeline {
                 script {
                     echo "building jar"
                     buildJar()
-                    //gv.buildJar()
                 }
             }
         }
@@ -23,8 +23,7 @@ pipeline {
             steps {
                 script {
                     echo "building image"
-                    buildImage 'ucalib1/demo-app:jma-3.0'
-                    //gv.buildImage()
+                    buildImage 'ucalib1/demo-app:jma-4.0'
                 }
             }
         }
@@ -32,8 +31,6 @@ pipeline {
             steps {
                 script {
                     echo "deploying"
-                    gv.deployApp()
-                    //gv.deployApp()
                 }
             }
         }
